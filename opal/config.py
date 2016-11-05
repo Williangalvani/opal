@@ -1,5 +1,6 @@
 import os
 import configparser as cfg # In python 3, this module is changed to configparser
+import platform as _platform
 from .Platforms import LINUX as platform
 
 def create_default_configuration():
@@ -9,7 +10,10 @@ def create_default_configuration():
     return configuration
 
 def read_config():
-    configFile = os.environ['HOME'] + '/.opal/opal.cfg'
+    if "Linux" in _platform.platform():
+        configFile = os.environ['HOME'] + '/.opal/opal.cfg'
+    else:
+        configFile = os.environ['APPDATA'] + '/.opal/opal.cfg'
     if not os.path.exists(configFile):
         return create_default_configuration()
     configuration = cfg.ConfigParser()

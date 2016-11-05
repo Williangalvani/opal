@@ -130,7 +130,8 @@ class DataGenerator(Agent):
             try:
                 settings = self.platform_description['settings']
                 platform.set_parameter(**settings)
-            except:
+            except Exception as e:
+                self.logger.log(e)
                 # Leave the options as default if there is an error
                 # in setting values
                 pass

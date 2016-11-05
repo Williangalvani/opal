@@ -9,7 +9,7 @@ class LINUXTask(Task):
                  name=None,
                  command=None,
                  sessionTag=None,
-                 output='/dev/null',
+                 output='logs.txt',
                  logHandlers=[]):
         Task.__init__(self,
                       name=name,

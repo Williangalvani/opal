@@ -477,7 +477,14 @@ class NOMADSolver(Solver):
         return
 
     def run(self):
-        os.system('nomad ' + self.paramFileName)
+        try:
+            nomad_path = os.path.join(os.environ["NOMAD_HOME"], "bin", "nomad")
+            command = '"'+nomad_path + '" ' + self.paramFileName
+            os.system(command)
+
+        except Exception as e:
+            os.system('nomad ' + self.paramFileName)
+
         return
 
 class NOMADMPISolver(NOMADSolver):
