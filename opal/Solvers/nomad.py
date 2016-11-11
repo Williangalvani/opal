@@ -456,7 +456,7 @@ class NOMADSolver(Solver):
                                ' EVAL & BBE & [ SOL ] & OBJ & TIME \\\\')
         if 'DISPLAY_DEGREE' not in self.parameter_settings:
             self.set_parameter(name='DISPLAY_DEGREE',
-                               value=1)
+                               value=2)
         if 'DISPLAY_STATS' not in self.parameter_settings:
             self.set_parameter(name='DISPLAY_STATS',
                                value='EVAL BBE [ SOL, ] BBO TIME')
